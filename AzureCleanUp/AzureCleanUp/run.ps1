@@ -8,7 +8,7 @@ Write-Host "Current UTC time:  $currentUTCtime"
 
 $rgs = Get-AzResourceGroup
 foreach ($rg in $rgs){
-    if ($rg.ResourceId -ne '/subscriptions/8348c69f-7f45-46be-8513-7cb4762c69c2/resourceGroups/azurecleanup'){
+    if ($rg.ResourceId -ne '/subscriptions/8348c69f-7f45-46be-8513-7cb4762c69c2/resourceGroups/azurecleanup' -and $rg.ResourceId -ne '/subscriptions/8348c69f-7f45-46be-8513-7cb4762c69c2/resourceGroups/AzureMonitor'){
         Remove-AzResourceGroup -Name $rg.ResourceGroupName -Force
     }
 }
